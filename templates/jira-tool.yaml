@@ -1,0 +1,37 @@
+name: jira-search
+description: Search Jira issues by JQL query and return matching tickets with status, assignee, and summary.
+version: "1.0.0"
+author: forge-team
+tags:
+  - jira
+  - project-management
+  - tickets
+
+handler_type: http
+handler: "https://{{domain}}/rest/api/3/search?jql={{jql}}&maxResults={{max_results}}"
+http_method: GET
+headers:
+  Authorization: "Basic {{auth_token}}"
+  Accept: application/json
+timeout: 15000
+
+parameters:
+  domain:
+    type: string
+    description: "Jira instance domain (e.g., mycompany.atlassian.net)"
+    required: true
+  jql:
+    type: string
+    description: "JQL query string to search issues"
+    required: true
+  max_results:
+    type: integer
+    description: "Maximum number of results to return"
+    required: false
+    default: 25
+    minimum: 1
+    maximum: 100
+  auth_token:
+    type: string
+    description: "Base64-encoded email:api_token for authentication"
+    required: true

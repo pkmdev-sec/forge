@@ -1,0 +1,35 @@
+name: db-query
+description: Execute a read-only SQL query against a database and return results as JSON.
+version: "1.0.0"
+author: forge-team
+tags:
+  - database
+  - sql
+  - query
+
+handler_type: shell
+handler: "sqlite3 -json {{db_path}} '{{query}}'"
+timeout: 30000
+
+parameters:
+  db_path:
+    type: string
+    description: "Path to the SQLite database file"
+    required: true
+  query:
+    type: string
+    description: "SQL SELECT query to execute (read-only operations only)"
+    required: true
+    pattern: "^SELECT"
+  limit:
+    type: integer
+    description: "Maximum rows to return (appended as LIMIT clause)"
+    required: false
+    default: 100
+    minimum: 1
+    maximum: 10000
+  format:
+    type: enum:json,csv,table
+    description: "Output format for query results"
+    required: false
+    default: json

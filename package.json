@@ -1,0 +1,27 @@
+{
+  "name": "@pkmdev/forge",
+  "version": "1.0.0",
+  "description": "FORGE — Custom Tool Factory. Build MCP tools from YAML definitions.",
+  "type": "module",
+  "main": "index.mjs",
+  "bin": {
+    "forge": "./cli.mjs"
+  },
+  "scripts": {
+    "test": "node --test tests/**/*.test.mjs",
+    "start": "node index.mjs",
+    "serve": "node lib/mcp-server.mjs"
+  },
+  "keywords": ["mcp", "tools", "forge", "yaml", "custom-tools", "tool-factory"],
+  "author": "pkmdev-sec",
+  "license": "MIT",
+  "dependencies": {
+    "yaml": "^2.4.1",
+    "ajv": "^8.12.0",
+    "express": "^4.18.2",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "semver": "^7.6.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,39 @@
+name: slack-post-message
+description: Post a message to a Slack channel using the Slack Web API.
+version: "1.0.0"
+author: forge-team
+tags:
+  - slack
+  - messaging
+  - notifications
+
+handler_type: http
+handler: "https://slack.com/api/chat.postMessage"
+http_method: POST
+headers:
+  Authorization: "Bearer {{bot_token}}"
+  Content-Type: application/json
+timeout: 10000
+
+parameters:
+  channel:
+    type: string
+    description: "Slack channel ID or name (e.g., #general or C01234ABCDE)"
+    required: true
+  text:
+    type: string
+    description: "Message text to post (supports Slack markdown/mrkdwn)"
+    required: true
+  bot_token:
+    type: string
+    description: "Slack Bot OAuth token (xoxb-...)"
+    required: true
+  thread_ts:
+    type: string
+    description: "Thread timestamp to reply in a thread (optional)"
+    required: false
+  unfurl_links:
+    type: boolean
+    description: "Whether to unfurl text-based links"
+    required: false
+    default: true
