@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="50%" stop-color="#080808"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <!-- Orange gradient (diagonal) -->
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <!-- Orange gradient (vertical) -->
+    <linearGradient id="orangeGradV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <!-- Orange gradient (horizontal) -->
+    <linearGradient id="orangeGradH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <!-- Ember/fire gradient for sparks -->
+    <linearGradient id="emberGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <!-- Inner glow radial -->
+    <radialGradient id="innerGlow" cx="0.5" cy="0.5" r="0.35">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="60%" stop-color="#f97316" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Logo glow -->
+    <radialGradient id="logoGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#ea580c" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Heat glow from anvil top -->
+    <radialGradient id="heatGlow" cx="0.5" cy="0.3" r="0.5">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Anvil glow filter -->
+    <filter id="anvilGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Outer glow filter -->
+    <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Title glow filter -->
+    <filter id="titleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Spark glow filter -->
+    <filter id="sparkGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="url(#bg)"/>
+
+  <!-- Border frame -->
+  <rect x="8" y="8" width="1484" height="484" rx="12" ry="12" fill="none" stroke="#21262d" stroke-width="1"/>
+  <rect x="12" y="12" width="1476" height="476" rx="10" ry="10" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- === LEFT SIDE: Anvil + Sparks Logo === -->
+
+  <!-- Background glow behind anvil -->
+  <circle cx="300" cy="260" r="220" fill="url(#logoGlow)" filter="url(#outerGlow)" opacity="0.5"/>
+
+  <!-- Heat glow above anvil -->
+  <ellipse cx="300" cy="200" rx="120" ry="80" fill="url(#heatGlow)"/>
+
+  <!-- Circular container rings -->
+  <circle cx="300" cy="260" r="185" fill="none" stroke="#f97316" stroke-width="1" opacity="0.12"/>
+  <circle cx="300" cy="260" r="175" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- Inner glow field -->
+  <circle cx="300" cy="260" r="120" fill="url(#innerGlow)"/>
+
+  <g filter="url(#anvilGlow)">
+    <!-- === ANVIL === -->
+    <!-- Anvil horn (left beak) -->
+    <path d="M 215 255 L 245 245 L 245 265 Z" fill="url(#orangeGrad)" opacity="0.9"/>
+
+    <!-- Anvil face (top working surface) -->
+    <rect x="245" y="240" width="120" height="25" rx="2" fill="url(#orangeGradH)" opacity="0.9"/>
+
+    <!-- Anvil highlight on top surface -->
+    <rect x="250" y="242" width="110" height="4" rx="1" fill="#fdba74" opacity="0.4"/>
+
+    <!-- Anvil step (right side) -->
+    <rect x="335" y="240" width="30" height="35" rx="1" fill="url(#orangeGrad)" opacity="0.8"/>
+
+    <!-- Anvil waist (narrower middle) -->
+    <path d="M 255 265 L 255 300 L 260 310 L 350 310 L 355 300 L 355 265 Z" fill="url(#orangeGradV)" opacity="0.75"/>
+
+    <!-- Anvil base (wide bottom) -->
+    <path d="M 235 310 L 240 310 L 250 320 L 250 340 L 235 345 L 220 340 L 220 320 Z" fill="url(#orangeGrad)" opacity="0.7"/>
+    <path d="M 360 310 L 370 310 L 385 320 L 385 340 L 370 345 L 360 340 L 360 320 Z" fill="url(#orangeGrad)" opacity="0.7"/>
+    <rect x="250" y="310" width="110" height="35" rx="1" fill="url(#orangeGradV)" opacity="0.7"/>
+
+    <!-- Anvil base bottom highlight -->
+    <rect x="225" y="342" width="160" height="3" rx="1" fill="#f97316" opacity="0.3"/>
+  </g>
+
+  <!-- === SPARKS flying upward from anvil === -->
+  <g filter="url(#sparkGlow)">
+    <!-- Large sparks -->
+    <circle cx="280" cy="195" r="3.5" fill="#fef3c7" opacity="0.9"/>
+    <circle cx="320" cy="180" r="3" fill="#fbbf24" opacity="0.85"/>
+    <circle cx="260" cy="175" r="2.5" fill="#fdba74" opacity="0.8"/>
+    <circle cx="340" cy="190" r="2.8" fill="#fef3c7" opacity="0.75"/>
+
+    <!-- Medium sparks -->
+    <circle cx="295" cy="165" r="2" fill="#fbbf24" opacity="0.9"/>
+    <circle cx="310" cy="155" r="2.2" fill="#fef3c7" opacity="0.85"/>
+    <circle cx="275" cy="150" r="1.8" fill="#fdba74" opacity="0.7"/>
+    <circle cx="335" cy="170" r="2" fill="#fbbf24" opacity="0.75"/>
+    <circle cx="250" cy="190" r="2" fill="#f97316" opacity="0.65"/>
+    <circle cx="355" cy="200" r="1.8" fill="#f97316" opacity="0.6"/>
+
+    <!-- Small sparks (scattered higher) -->
+    <circle cx="290" cy="140" r="1.5" fill="#fef3c7" opacity="0.7"/>
+    <circle cx="315" cy="130" r="1.2" fill="#fbbf24" opacity="0.65"/>
+    <circle cx="265" cy="135" r="1.3" fill="#fdba74" opacity="0.6"/>
+    <circle cx="340" cy="145" r="1.4" fill="#fef3c7" opacity="0.55"/>
+    <circle cx="250" cy="160" r="1" fill="#f97316" opacity="0.5"/>
+    <circle cx="355" cy="155" r="1.2" fill="#fbbf24" opacity="0.5"/>
+
+    <!-- Tiny sparks (highest) -->
+    <circle cx="300" cy="120" r="1" fill="#fef3c7" opacity="0.5"/>
+    <circle cx="280" cy="115" r="0.8" fill="#fbbf24" opacity="0.45"/>
+    <circle cx="325" cy="118" r="0.9" fill="#fdba74" opacity="0.4"/>
+    <circle cx="270" cy="125" r="0.7" fill="#fef3c7" opacity="0.35"/>
+    <circle cx="345" cy="128" r="0.8" fill="#fbbf24" opacity="0.35"/>
+  </g>
+
+  <!-- Spark trails (thin lines rising from anvil) -->
+  <line x1="280" y1="235" x2="275" y2="200" stroke="#fbbf24" stroke-width="0.8" opacity="0.25"/>
+  <line x1="300" y1="235" x2="300" y2="170" stroke="#fbbf24" stroke-width="0.8" opacity="0.2"/>
+  <line x1="320" y1="235" x2="325" y2="185" stroke="#fbbf24" stroke-width="0.8" opacity="0.25"/>
+  <line x1="260" y1="240" x2="255" y2="195" stroke="#f97316" stroke-width="0.6" opacity="0.15"/>
+  <line x1="340" y1="240" x2="348" y2="195" stroke="#f97316" stroke-width="0.6" opacity="0.15"/>
+
+  <!-- Hammer silhouette above anvil (striking position) -->
+  <g opacity="0.6">
+    <!-- Hammer head -->
+    <rect x="278" y="210" width="50" height="18" rx="3" fill="url(#orangeGrad)" opacity="0.5"/>
+    <!-- Hammer handle -->
+    <line x1="303" y1="210" x2="345" y2="165" stroke="#fdba74" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+  </g>
+
+  <!-- Decorative arcs around anvil -->
+  <path d="M 175 260 A 125 125 0 0 1 300 135" fill="none" stroke="#f97316" stroke-width="0.8" opacity="0.1"/>
+  <path d="M 425 260 A 125 125 0 0 1 300 385" fill="none" stroke="#ea580c" stroke-width="0.8" opacity="0.1"/>
+  <path d="M 300 135 A 125 125 0 0 1 425 260" fill="none" stroke="#f97316" stroke-width="0.8" opacity="0.07"/>
+  <path d="M 300 385 A 125 125 0 0 1 175 260" fill="none" stroke="#ea580c" stroke-width="0.8" opacity="0.07"/>
+
+  <!-- === RIGHT SIDE: Text === -->
+
+  <!-- Title -->
+  <text x="620" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="800" fill="#f97316" filter="url(#titleGlow)">FORGE</text>
+
+  <!-- Subtitle -->
+  <text x="625" y="285" font-family="'SF Mono', 'Fira Code', monospace" font-size="28" fill="#8b949e" letter-spacing="8">CUSTOM TOOL FACTORY</text>
+
+  <!-- Tagline -->
+  <text x="625" y="325" font-family="'SF Mono', 'Fira Code', monospace" font-size="18" fill="#6e7681">YAML definitions / MCP tools / tool marketplace</text>
+
+  <!-- Decorative line -->
+  <line x1="620" y1="345" x2="1100" y2="345" stroke="#21262d" stroke-width="0.5"/>
+
+  <!-- Version badge -->
+  <rect x="625" y="360" width="62" height="28" rx="14" fill="transparent" stroke="#f97316" stroke-width="1.2" opacity="0.6"/>
+  <text x="656" y="379" font-family="'SF Mono', 'Fira Code', monospace" font-size="14" fill="#f97316" text-anchor="middle" opacity="0.8">v1.0</text>
+</svg>

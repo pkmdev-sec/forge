@@ -1,20 +1,15 @@
-```
-    ╔══════════════════════════════════════════════════════════════╗
-    ║       ✦  ·  ✧                                               ║
-    ║      ✧ · ✦  ·                                               ║
-    ║        ╔═══╗           ███████╗ ██████╗  ██████╗  ██████╗ ███████╗  ║
-    ║       ╔╝   ╚╗          ██╔════╝██╔═══██╗██╔══██╗██╔════╝ ██╔════╝  ║
-    ║      ╔╝ ▄█▄ ╚╗         █████╗  ██║   ██║██████╔╝██║  ███╗█████╗    ║
-    ║     ╔╝ █████ ╚╗        ██╔══╝  ██║   ██║██╔══██╗██║   ██║██╔══╝    ║
-    ║    ╔╝ ███████ ╚╗       ██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗  ║
-    ║    ║ █████████ ║       ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝  ║
-    ║    ╠═══════════╣                                                     ║
-    ║    ║ ░░░▓▓▓░░░ ║       ⚒  CUSTOM TOOL FACTORY                      ║
-    ║    ╚═══════════╝                                                     ║
-    ╚══════════════════════════════════════════════════════════════╝
-```
+![Forge Banner](assets/banner.svg)
 
-> **Build MCP tools from YAML definitions. Share via Marketplace.**
+<p align="center"><strong>Build MCP tools from YAML definitions. Share via Marketplace.</strong></p>
+<p align="center">The custom tool factory for Claude Code — define, build, validate, and serve MCP tools from simple YAML definitions.</p>
+
+## Why "Forge"?
+
+The name **FORGE** comes from **metallurgy and blacksmithing** — the ancient craft of shaping raw metal into precision tools through heat, hammer, and skill. A blacksmith's forge is where raw materials are transformed into custom, purpose-built instruments.
+
+This is exactly what FORGE does for AI tooling: it takes **raw YAML definitions** (the unformed metal) and **forges them into fully functional MCP tools** (the finished instruments) — complete with validated schemas, typed parameters, and executable handlers. Just as a master smith crafts bespoke tools for specific trades, FORGE lets you craft bespoke tools for specific AI workflows.
+
+The **anvil** represents the solid foundation of the MCP protocol. The **sparks** represent the creative energy of tool authoring — each spark a new capability being hammered into shape. The **marketplace** is the guild hall where smiths share their finest work.
 
 ## Overview
 

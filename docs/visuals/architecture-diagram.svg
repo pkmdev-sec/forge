@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <marker id="ag" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#3fb950"/>
+    </marker>
+    <marker id="ab" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#58a6ff"/>
+    </marker>
+    <marker id="ao" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#f97316"/>
+    </marker>
+    <marker id="ap" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#f85149"/>
+    </marker>
+    <marker id="av" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#bc8cff"/>
+    </marker>
+  </defs>
+
+  <!-- Background: PITCH BLACK -->
+  <rect width="1200" height="900" fill="#000000"/>
+
+  <!-- Title -->
+  <text x="600" y="48" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">FORGE Architecture</text>
+  <text x="600" y="72" font-family="system-ui, sans-serif" font-size="14" fill="#8b949e" text-anchor="middle">Custom Tool Factory — YAML to MCP Pipeline</text>
+
+  <!-- ===== ROW 1: YAML Input ===== -->
+  <rect x="450" y="95" width="300" height="55" rx="8" fill="#3fb950" fill-opacity="0.08" stroke="#3fb950" stroke-width="1"/>
+  <text x="600" y="120" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">YAML Tool Definition</text>
+  <text x="600" y="139" font-family="system-ui, sans-serif" font-size="12" fill="#3fb950" text-anchor="middle">name, handler, parameters, metadata</text>
+
+  <!-- Arrow: YAML → Schema Generator + Tool Builder (fan out) -->
+  <line x1="530" y1="150" x2="310" y2="198" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#ab)"/>
+  <line x1="670" y1="150" x2="890" y2="198" stroke="#f97316" stroke-width="1.5" marker-end="url(#ao)"/>
+  <line x1="600" y1="150" x2="600" y2="198" stroke="#3fb950" stroke-width="2" marker-end="url(#ag)"/>
+
+  <!-- ===== ROW 2: Core Processing (3 boxes) ===== -->
+  <!-- Schema Generator (blue) -->
+  <rect x="160" y="200" width="240" height="65" rx="8" fill="#58a6ff" fill-opacity="0.08" stroke="#58a6ff" stroke-width="1"/>
+  <text x="280" y="228" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Schema Generator</text>
+  <text x="280" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#58a6ff" text-anchor="middle">JSON Schema from type descriptions</text>
+
+  <!-- Tool Builder (green, center) -->
+  <rect x="470" y="200" width="260" height="65" rx="8" fill="#3fb950" fill-opacity="0.08" stroke="#3fb950" stroke-width="1"/>
+  <text x="600" y="228" font-family="system-ui, sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">Tool Builder</text>
+  <text x="600" y="250" font-family="system-ui, sans-serif" font-size="13" fill="#3fb950" text-anchor="middle">Build MCP tools from definitions</text>
+
+  <!-- Validator (orange) -->
+  <rect x="800" y="200" width="240" height="65" rx="8" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-width="1"/>
+  <text x="920" y="228" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Validator</text>
+  <text x="920" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#f97316" text-anchor="middle">Structure &amp; type validation</text>
+
+  <!-- Arrow: Schema Generator → Tool Builder -->
+  <line x1="400" y1="232" x2="468" y2="232" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Arrow: Validator → Tool Builder -->
+  <line x1="800" y1="232" x2="732" y2="232" stroke="#f97316" stroke-width="1.5" marker-end="url(#ao)"/>
+
+  <!-- Connector bus line -->
+  <line x1="100" y1="310" x2="1100" y2="310" stroke="#8b949e" stroke-width="1" stroke-dasharray="6,4" opacity="0.3"/>
+
+  <!-- Arrows: Row 2 → bus -->
+  <line x1="280" y1="265" x2="280" y2="307" stroke="#58a6ff" stroke-width="1.5" opacity="0.5"/>
+  <line x1="600" y1="265" x2="600" y2="307" stroke="#3fb950" stroke-width="1.5" opacity="0.5"/>
+  <line x1="920" y1="265" x2="920" y2="307" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Arrows: bus → Row 3 (fan out to handler types) -->
+  <line x1="350" y1="313" x2="350" y2="358" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#av)"/>
+  <line x1="600" y1="313" x2="600" y2="358" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#av)"/>
+  <line x1="850" y1="313" x2="850" y2="358" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#av)"/>
+
+  <!-- ===== ROW 3: Handler Types (3 boxes) ===== -->
+  <!-- Shell Handler (purple) -->
+  <rect x="230" y="360" width="240" height="60" rx="8" fill="#bc8cff" fill-opacity="0.08" stroke="#bc8cff" stroke-width="1"/>
+  <text x="350" y="387" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Shell Handler</text>
+  <text x="350" y="407" font-family="system-ui, sans-serif" font-size="12" fill="#bc8cff" text-anchor="middle">Command interpolation &amp; sanitization</text>
+
+  <!-- HTTP Handler (purple) -->
+  <rect x="480" y="360" width="240" height="60" rx="8" fill="#bc8cff" fill-opacity="0.08" stroke="#bc8cff" stroke-width="1"/>
+  <text x="600" y="387" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">HTTP Handler</text>
+  <text x="600" y="407" font-family="system-ui, sans-serif" font-size="12" fill="#bc8cff" text-anchor="middle">URL &amp; header interpolation</text>
+
+  <!-- Parameter Resolver (purple) -->
+  <rect x="730" y="360" width="240" height="60" rx="8" fill="#bc8cff" fill-opacity="0.08" stroke="#bc8cff" stroke-width="1"/>
+  <text x="850" y="387" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Parameter Resolver</text>
+  <text x="850" y="407" font-family="system-ui, sans-serif" font-size="12" fill="#bc8cff" text-anchor="middle">Defaults, required, types</text>
+
+  <!-- Arrows: Handlers → MCP Server -->
+  <line x1="350" y1="420" x2="520" y2="478" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ag)"/>
+  <line x1="600" y1="420" x2="600" y2="478" stroke="#3fb950" stroke-width="2" marker-end="url(#ag)"/>
+  <line x1="850" y1="420" x2="680" y2="478" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- ===== ROW 4: MCP Server ===== -->
+  <rect x="465" y="480" width="270" height="65" rx="8" fill="#3fb950" fill-opacity="0.08" stroke="#3fb950" stroke-width="1"/>
+  <text x="600" y="508" font-family="system-ui, sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">MCP Server</text>
+  <text x="600" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#3fb950" text-anchor="middle">JSON-RPC 2.0 over stdio</text>
+
+  <!-- Arrows: MCP Server → Registry and Marketplace -->
+  <line x1="520" y1="545" x2="310" y2="588" stroke="#f97316" stroke-width="1.5" marker-end="url(#ao)"/>
+  <line x1="680" y1="545" x2="890" y2="588" stroke="#f85149" stroke-width="1.5" marker-end="url(#ap)"/>
+  <line x1="600" y1="545" x2="600" y2="588" stroke="#3fb950" stroke-width="2" marker-end="url(#ag)"/>
+
+  <!-- ===== ROW 5: Registry + Marketplace + CLI ===== -->
+  <!-- Tool Registry (orange) -->
+  <rect x="160" y="590" width="240" height="65" rx="8" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-width="1"/>
+  <text x="280" y="618" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Tool Registry</text>
+  <text x="280" y="640" font-family="system-ui, sans-serif" font-size="12" fill="#f97316" text-anchor="middle">Install / Uninstall / Update / List</text>
+
+  <!-- CLI (green, center) -->
+  <rect x="480" y="590" width="240" height="65" rx="8" fill="#3fb950" fill-opacity="0.08" stroke="#3fb950" stroke-width="1"/>
+  <text x="600" y="618" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">CLI Interface</text>
+  <text x="600" y="640" font-family="system-ui, sans-serif" font-size="12" fill="#3fb950" text-anchor="middle">build / validate / serve / install</text>
+
+  <!-- Marketplace (red) -->
+  <rect x="800" y="590" width="240" height="65" rx="8" fill="#f85149" fill-opacity="0.08" stroke="#f85149" stroke-width="1"/>
+  <text x="920" y="618" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Marketplace</text>
+  <text x="920" y="640" font-family="system-ui, sans-serif" font-size="12" fill="#f85149" text-anchor="middle">Publish / Search / Browse / Rate</text>
+
+  <!-- Arrows: Row 5 → Output -->
+  <line x1="280" y1="655" x2="500" y2="718" stroke="#f97316" stroke-width="1.5" marker-end="url(#ao)"/>
+  <line x1="600" y1="655" x2="600" y2="718" stroke="#3fb950" stroke-width="2" marker-end="url(#ag)"/>
+  <line x1="920" y1="655" x2="700" y2="718" stroke="#f85149" stroke-width="1.5" marker-end="url(#ap)"/>
+
+  <!-- ===== ROW 6: Output ===== -->
+  <rect x="430" y="720" width="340" height="65" rx="8" fill="#3fb950" fill-opacity="0.08" stroke="#3fb950" stroke-width="1"/>
+  <text x="600" y="748" font-family="system-ui, sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">Claude Code / AI Agent</text>
+  <text x="600" y="770" font-family="system-ui, sans-serif" font-size="13" fill="#3fb950" text-anchor="middle">MCP-compatible tool execution</text>
+
+  <!-- ===== Legend ===== -->
+  <rect x="160" y="840" width="16" height="16" rx="3" fill="#3fb950" fill-opacity="0.3" stroke="#3fb950" stroke-width="1"/>
+  <text x="184" y="853" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">Main Flow</text>
+
+  <rect x="300" y="840" width="16" height="16" rx="3" fill="#58a6ff" fill-opacity="0.3" stroke="#58a6ff" stroke-width="1"/>
+  <text x="324" y="853" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">Schema</text>
+
+  <rect x="420" y="840" width="16" height="16" rx="3" fill="#f97316" fill-opacity="0.3" stroke="#f97316" stroke-width="1"/>
+  <text x="444" y="853" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">Registry</text>
+
+  <rect x="540" y="840" width="16" height="16" rx="3" fill="#f85149" fill-opacity="0.3" stroke="#f85149" stroke-width="1"/>
+  <text x="564" y="853" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">Marketplace</text>
+
+  <rect x="680" y="840" width="16" height="16" rx="3" fill="#bc8cff" fill-opacity="0.3" stroke="#bc8cff" stroke-width="1"/>
+  <text x="704" y="853" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e">Handlers</text>
+</svg>
