@@ -8,3 +8,5 @@ export { buildTool, buildTools, loadToolDefinition, validateToolDefinition, buil
 export { createServer, createServerFromDirectory } from './lib/mcp-server.mjs';
 export { createRegistry } from './lib/tool-registry.mjs';
 export { createMarketplace } from './lib/marketplace.mjs';
+export { ToolTester } from './lib/tool-tester.mjs';
+export { DocGenerator } from './lib/doc-generator.mjs';

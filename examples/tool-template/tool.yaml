@@ -1,0 +1,105 @@
+# Tool Definition Template
+# Copy this template to create your own custom MCP tool.
+# Replace all placeholder values with your actual tool configuration.
+
+# REQUIRED: Unique tool identifier (use lowercase, hyphens, underscores)
+name: my-custom-tool
+
+# REQUIRED: Clear description of what the tool does
+description: Brief description of what this tool does and when to use it
+
+# Semantic version (major.minor.patch)
+version: "1.0.0"
+
+# Tool author or organization
+author: your-name
+
+# Categories for discovery and organization
+tags:
+  - category1
+  - category2
+
+# Handler Type: How the tool executes
+# Options:
+#   - shell: Execute a command-line program
+#   - http: Make an HTTP/HTTPS API request
+handler_type: shell
+
+# Handler Template: The command or URL to execute
+# Use {{parameter}} syntax to inject parameter values
+# Shell example: "echo {{message}}"
+# HTTP example: "https://api.example.com/v1/{{endpoint}}"
+handler: "echo {{input}}"
+
+# For HTTP handlers, specify the HTTP method
+# http_method: GET
+
+# Optional: HTTP headers (for http handler_type only)
+# headers:
+#   Authorization: "Bearer {{api_token}}"
+#   Content-Type: "application/json"
+
+# Execution timeout in milliseconds
+timeout: 30000
+
+# Parameters: Define the inputs your tool accepts
+# Each parameter should have:
+#   - type: Data type (string, number, integer, boolean, array<T>, enum:a,b,c)
+#   - description: What this parameter is for
+#   - required: Whether this parameter is mandatory (true/false)
+#   - default: Optional default value
+#   - Constraints: minLength, maxLength, minimum, maximum, pattern, enum, etc.
+parameters:
+  input:
+    type: string
+    description: "Input parameter description"
+    required: true
+    # Optional: Add constraints
+    # minLength: 1
+    # maxLength: 1000
+    # pattern: "^[a-zA-Z0-9]+$"
+
+  # Example: Optional parameter with default
+  # format:
+  #   type: string
+  #   description: "Output format"
+  #   required: false
+  #   default: "json"
+  #   enum:
+  #     - json
+  #     - yaml
+  #     - text
+
+  # Example: Numeric parameter with constraints
+  # limit:
+  #   type: integer
+  #   description: "Maximum number of results"
+  #   required: false
+  #   default: 10
+  #   minimum: 1
+  #   maximum: 100
+
+  # Example: Boolean flag
+  # verbose:
+  #   type: boolean
+  #   description: "Enable verbose output"
+  #   required: false
+  #   default: false
+
+  # Example: Array parameter
+  # tags:
+  #   type: array
+  #   items:
+  #     type: string
+  #   description: "List of tags to filter by"
+  #   required: false
+
+# Optional: Dependencies on other tools
+# dependencies:
+#   other-tool-name: "^1.0.0"
+
+# Optional: Examples showing how to use the tool
+# examples:
+#   - description: "Basic usage example"
+#     parameters:
+#       input: "example value"

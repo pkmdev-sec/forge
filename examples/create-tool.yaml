@@ -1,0 +1,134 @@
+# GitHub Issue Search Tool Definition
+# This example demonstrates how to create a custom MCP tool using FORGE.
+# Each field is explained below to help you understand the structure.
+
+# Tool Identification
+# ------------------
+# The unique name for your tool (alphanumeric, dash, underscore only)
+name: github-issue-search
+
+# Description of what the tool does (shown to Claude/users)
+description: Search GitHub issues and pull requests by repository and query parameters. Returns matching issues with title, state, labels, and author information.
+
+# Version using semantic versioning (major.minor.patch)
+version: "1.0.0"
+
+# Tool author or team name
+author: forge-examples
+
+# Tags for categorization and discovery in the marketplace
+tags:
+  - github
+  - issues
+  - search
+  - development
+
+# Handler Configuration
+# --------------------
+# The handler type determines how the tool executes
+# Options: 'shell' (run commands) or 'http' (make API requests)
+handler_type: http
+
+# Handler template with {{parameter}} placeholders
+# Parameters in double braces are replaced with actual values at runtime
+# For HTTP handlers, this is the URL endpoint
+handler: "https://api.github.com/search/issues?q={{query}}+repo:{{owner}}/{{repo}}+is:{{type}}&per_page={{limit}}"
+
+# HTTP method for API requests (GET, POST, PUT, DELETE, PATCH, etc.)
+http_method: GET
+
+# Optional HTTP headers
+# Use {{parameter}} syntax to inject authentication tokens or other dynamic values
+headers:
+  Accept: "application/vnd.github.v3+json"
+  User-Agent: "Forge-MCP-Tool/1.0"
+  # Uncomment to add authentication:
+  # Authorization: "Bearer {{github_token}}"
+
+# Timeout in milliseconds (how long to wait before failing)
+timeout: 15000
+
+# Parameters
+# ----------
+# Define the inputs your tool accepts
+# Each parameter has: type, description, required flag, and optional constraints
+
+parameters:
+  # Repository owner (username or organization)
+  owner:
+    type: string
+    description: "GitHub repository owner (username or organization name)"
+    required: true
+    # Example constraint: ensure it's not empty
+    minLength: 1
+    maxLength: 100
+
+  # Repository name
+  repo:
+    type: string
+    description: "GitHub repository name"
+    required: true
+    minLength: 1
+    maxLength: 100
+
+  # Search query
+  query:
+    type: string
+    description: "Search query string (e.g., 'bug', 'feature request', 'label:enhancement')"
+    required: true
+    minLength: 1
+    # Example: prevent very long queries
+    maxLength: 500
+
+  # Issue type filter
+  type:
+    type: string
+    description: "Filter by type: issue, pr (pull request), or both"
+    required: false
+    default: "issue"
+    # Enum constraint: only allow specific values
+    enum:
+      - issue
+      - pr
+
+  # Result limit
+  limit:
+    type: integer
+    description: "Maximum number of results to return"
+    required: false
+    default: 10
+    # Numeric constraints
+    minimum: 1
+    maximum: 100
+
+  # Optional: GitHub token for authentication (increases rate limits)
+  # github_token:
+  #   type: string
+  #   description: "GitHub personal access token for authentication (optional but recommended)"
+  #   required: false
+
+# Additional Configuration (Optional)
+# ----------------------------------
+
+# Dependencies on other tools (for complex workflows)
+# dependencies:
+#   - tool-name: "^1.0.0"
+
+# Environment variables required by the tool
+# env:
+#   - GITHUB_TOKEN
+
+# Tool capabilities or limitations
+# capabilities:
+#   - read-only
+#   - rate-limited
+
+# Examples of how to use this tool
+# examples:
+#   - description: "Search for open bugs"
+#     parameters:
+#       owner: "microsoft"
+#       repo: "vscode"
+#       query: "is:open label:bug"
+#       type: "issue"
+#       limit: 20
